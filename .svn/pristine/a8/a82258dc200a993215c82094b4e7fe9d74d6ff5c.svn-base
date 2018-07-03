@@ -1,0 +1,17 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "./MarketSimulator.h"
+#include "./Trader.h"
+
+int main(int argc, char** argv) {
+    MarketSimulator mark;
+    Trader trader;
+    mark.parseCommandLineArguments(argc, argv);
+    mark.simulate(&trader);
+    return 0;
+}

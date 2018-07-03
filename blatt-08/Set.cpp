@@ -137,11 +137,11 @@ void Set<char>::insert(char c) {
     // store each element in the position of his own
     // dec value
     if (!lookup(c)) {  // check if exist
-        if (int(c) < 0) {
+        if (static_cast<int>(c) < 0) {
             int cInt = (~c - 1) + 4;
             _elements[cInt] = c;
         } else {
-            _elements[int(c)] = c;
+            _elements[static_cast<int>(c)] = c;
         }
     }
 }
@@ -155,15 +155,16 @@ bool Set<char>::lookup(char c) {
         return false;
     }
     // if exist
-    if (int(c) < 0) {
+    if (static_cast<int>(c) < 0) {
         int cInt = (~c - 1) + 4;
         if (_elements[cInt] == c) {
             return true;
         }
     }
-    else if (_elements[int(c)] == c) {
+    if (_elements[static_cast<int>(c)] == c) {
         return true;
     }
+    // return false as default
     return false;
 }
 /*]]*/
@@ -174,7 +175,7 @@ void Set<char>::erase(char c) {
     // counter to check all elements
     // do erase if exist
     if (lookup(c)) {
-        _elements[int(c)] = c + 1;
+        _elements[static_cast<int>(c)] = c + 1;
     }
 }
 /*]]*/

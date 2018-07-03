@@ -1,0 +1,268 @@
+/*
+ * copyright Abderrahmen Rakez
+ *
+ * */
+
+/* includes [[*/
+#include <getopt.h>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+#include <map>
+#include <utility>
+#include "./WordCounter.h"
+#include "./StringClass/String.h"
+/*]]*/
+
+/* constructor [[*/
+// _____________________________________________________________________________
+WordCounter::WordCounter() {
+    _minLength = 10;
+    _counter = 0;
+    _topK = 15;
+    _inputFileName = "";
+}
+/*]]*/
+
+/* processCommandLinerguments [[*/
+// __________________________________________________________________________
+void WordCounter::processCommandLineArguments(int argc, char** argv) {
+    struct option long_options[] = {
+        {"min-length", 1, NULL, 'l'},
+        {"top-k", 1, NULL, 'k'},
+        {NULL, 0, NULL, 0}
+    };
+    optind = 1;
+    // used in blatt-07
+    while (1) {
+        char choice = getopt_long(argc, argv, "l:k", long_options, NULL);
+
+        if (choice == -1) {
+            break;
+        }
+
+        switch (choice) {
+            case 'l': _minLength = static_cast<std::size_t>(atoi(optarg));
+                      break;
+
+            case 'k': _topK = static_cast<std::size_t>(atoi(optarg));
+                      break;
+        }
+    }
+
+    if (optind + 1 != argc) {
+        printUsageAndExit();
+    }
+
+    _inputFileName = argv[optind];
+}
+/*]]*/
+
+/* printUsageAndExit[[*/
+// _____________________________________________________________________________
+void WordCounter::printUsageAndExit(void) const {
+    std::cerr << "Usage: ./MarketSimulatorMain [option] <filename> \n"
+                 "-l, --min-lenght=N : minimal lenght of word\n"
+                 "-k, --topk=K : show the first K words\n";
+    exit(1);
+}
+/*]]*/
+
+/* process [[*/
+// __________________________________________________________________________
+void WordCounter::process() {
+    // used to operate on files
+    std::ifstream file;
+    // open file
+    file.open(_inputFileName);
+
+    // String class object
+    String s;
+
+    // store the extracted words
+    std::vector<std::string> extractedWords;
+
+    // hole line
+    std::vector<std::string> holeLine;
+
+    // check for invalid files
+    if (!file.is_open()) {
+        std::cerr << "Error opening file: .*" << std::endl;
+        exit(1);
+    }
+    // read line
+    std::string line;
+
+    // read file line by line
+    // until eof is reached
+    while (!file.eof()) {
+        // extract characters and store them in a string
+        // with default delimiter '\n'
+        getline(file, line);
+        extractedWords = s.split(line);
+        // subtract symbols
+        char toExtract[] = "-.,:;[]{}!()?'";
+        // subtract the coma and transform all upper case to
+        // lower case
+        for (auto &i : extractedWords) {
+            for (unsigned int a = 0; a < sizeof(toExtract)/sizeof(*toExtract);
+                    ++a) {
+                i.erase(std::remove(i.begin(), i.end(), toExtract[a]), i.end());
+                std::transform(i.begin(), i.end(), i.begin(), ::tolower);
+            }
+        }
+
+        updateWordCounts(extractedWords);
+    }
+    computeFrequentWords();
+
+    // std::cout << "elements" << std::endl;
+    // for (auto i : _elementAndFrequency) {
+    //     std::cout << i.first << "   " << i.second << std::endl;
+    // }
+
+    // close file
+    file.close();
+}
+/*]]*/
+
+    /* updateWordCounts[[*/
+    // __________________________________________________________________________
+    void WordCounter::updateWordCounts(const std::vector<std::string> str) {
+        std::unordered_map<std::string, std::size_t>::iterator iterate;
+
+        // go throw the given elements
+        for (auto i : str) {
+            // check if the length of each word longer as the given size
+            if (i.length() >= _minLength) {
+                // if the word is not found in the list, insert
+                if (_elementAndFrequency.find(i) ==
+                        _elementAndFrequency.end()) {
+                    _elementAndFrequency[i]++;
+                } else {
+                    // do not store an existing word again, but increase
+                    // the frequency
+                    for (iterate = _elementAndFrequency.begin(); iterate !=
+                            _elementAndFrequency.end(); iterate++) {
+                        if (iterate->first == i) {
+                            iterate->second++;
+                        }
+                    }
+                }
+            }
+        }
+        // counter take the size of the list
+        _counter = _elementAndFrequency.size();
+    }
+    /*]]*/
+
+/* getWordCount [[*/
+// __________________________________________________________________________
+const std::size_t WordCounter::getWordCount(const std::string s) {
+    // iterator to iterate over all elements
+    std::unordered_map<std::string, std::size_t>::iterator iter;
+    for (iter = _elementAndFrequency.begin(); iter !=
+            _elementAndFrequency.end();
+            iter++) {
+        // return count if found
+        if (iter->first == s) {
+            return iter->second;
+        }
+    }
+    // zero back if no exists
+    return 0;
+}
+/*]]*/
+
+/* computeFrequentWords [[*/
+// __________________________________________________________________________
+std::vector<std::pair<std::string, std::size_t> > WordCounter::
+computeFrequentWords(void) const {
+    std::vector<std::pair<std::string, std::size_t> > wordToGet;
+    // save all frequencies
+    for (auto i : _elementAndFrequency) {
+        wordToGet.push_back(std::make_pair(i.first,
+                    i.second));
+    }
+    // sort freq list
+    // using lambda function
+    std::sort(wordToGet.begin(), wordToGet.end(), [](
+                std::pair<std::string, std::size_t> a,
+                std::pair<std::string, std::size_t> b){
+            return a.second > b.second;});
+    if (wordToGet.size() != 0 && _topK <= getNumWords()) {
+        wordToGet.resize(_topK);
+    }
+    for (auto i : wordToGet) {
+        std::cout << i.first << "   " << i.second << std::endl;
+    }
+    return  wordToGet;
+}
+/*]]*/
+
+/* getNumWords [[*/
+// __________________________________________________________________________
+const std::size_t WordCounter::getNumWords(void) const {
+    // return the number of elements
+    return _counter;
+}
+/*]]*/
+
+// optional
+// user argument are used
+/* readFile [[*/
+// __________________________________________________________________________
+void WordCounter::readFile(std::string str) {
+    // used to operate on files
+    std::ifstream file;
+    // open file
+    file.open(str);
+
+    // String class object
+    String s;
+
+    // store the extracted words
+    std::vector<std::string> extractedWords;
+
+    // hole line
+    std::vector<std::string> holeLine;
+
+    // check for invalid files
+    if (!file.is_open()) {
+        std::cerr << "Error opening file: .*" << std::endl;
+        exit(1);
+    }
+    // read line
+    std::string line;
+
+    // read file line by line
+    // until eof is reached
+    while (!file.eof()) {
+        // extract characters and store them in a string
+        // with default delimiter '\n'
+        getline(file, line);
+        extractedWords = s.split(line);
+        // subtract the coma and transform all upper case to
+        // lower case
+        for (auto &i : extractedWords) {
+            i.erase(std::remove(i.begin(), i.end(), ','), i.end());
+            std::transform(i.begin(), i.end(), i.begin(), ::tolower);
+        }
+
+        updateWordCounts(extractedWords);
+        // for (auto i : extractedWords) {
+        //     std::cout << i << std::endl;
+        // }
+    }
+    // std::cout << "elements" << std::endl;
+    // for (auto i : _elementAndFrequency) {
+    //     std::cout << i.first << "   " << i.second << std::endl;
+    // }
+
+    // close file
+    file.close();
+}
+/*]]*/

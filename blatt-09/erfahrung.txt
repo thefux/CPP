@@ -1,0 +1,5 @@
+Die Aufgabe war machbar und hat Spaß gemacht..
+
+how to use:
+
+./WordCounterMain "fileName" -l 5 -k 6

@@ -1,0 +1,63 @@
+==== [ Feedback -- Übungsblatt 7 ] ====
+
+== [ Allgemein ] ==
+
+Dokumentation
+ -> Parameter -- gut
+ -> Sonstige Effekte -- gut
+
+Kommentare -- gut
+
+Codestyle -- ok
+
+Effizienz -- ok
+
+Valgrind -- ok
+
+== [ Aufgabe 1 ] ==
+
+Tests -- die hast Du nicht ins SVN eingecheckt. Laufen aber! :)
+
+Sonstiges -- ok
+
+== [ Aufgabe 2 ] ==
+
+Tests -- in Ordnung
+
+Sonstiges -- ok
+
+== [ Aufgabe 3 ] ==
+
+Tests -- in Ordnung
+
+Sonstiges -- gute Idee, die Stringklasse als Library einzubinden. Eigentlich
+sollen ja keine Binärdateien ins SVN, die Datei ist aber < 10K, deswegen ist das
+ok :)
+
+== [ Aufgabe 4 ] ==
+
+Kompaktes Main-Programm -- gut
+
+printStatistics -- gut
+
+Verbose sollte nur etwas ausgeben, wenn man auch wirklich etwas kauft/verkauft.
+
+== [ Erfahrungen ] ==
+
+Leider wurden keine erfahrungen.txt abgegeben.
+
+-------------------------------------------
+
+Super Abgabe!
+
+Funktionalität: 20/20 * 80% = 16
+Tests waren dieses Mal wieder bereitgestellt.
+Doku: 4/4
+Du hast insgesamt 20 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

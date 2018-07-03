@@ -1,0 +1,41 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#ifndef TRADER_H_
+#define TRADER_H_
+
+#include <gtest/gtest.h>
+// #include "./MarketSimulator.h"
+
+class Trader {
+ private:
+     // not handle or stop trade
+     bool _verbose;
+
+     // coast of bitcoins
+     int _money;
+
+     // seed money at different stages
+     float _seedMoney;
+
+     // number of bitcoins
+     int _assets;
+
+     float _lastPrices[4];
+
+ public:
+     // constructor
+     Trader();
+
+     // trade function takes coast of bitcoin as argument
+     void trade(float x);
+
+     // Friend test
+     FRIEND_TEST(TraderTest, constructor);
+     FRIEND_TEST(TraderTest, trade);
+     FRIEND_TEST(MarketSimulatorTest, simulateSimpleTraderInteraction);
+};
+
+#endif  // TRADER_H_

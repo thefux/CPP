@@ -1,0 +1,145 @@
+// Copyright 2018, University of Freiburg,
+// Chair of Algorithms and Data Structures.
+// Author: Axel Lehmann <lehmann@cs.uni-freiburg.de>.
+
+#include <gtest/gtest.h>
+#include "./String.h"
+
+// _____________________________________________________________________________
+TEST(StringTest, constructor) {
+  String s;
+  ASSERT_EQ(0, s._length);
+  ASSERT_EQ(0, s._contents[0]);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, copyConstructor) {
+  String s;
+  s.set("Bloed");
+  String r(s);
+  ASSERT_EQ('B', r._contents[0]);
+  ASSERT_EQ('l', r._contents[1]);
+  ASSERT_EQ('o', r._contents[2]);
+  ASSERT_EQ('e', r._contents[3]);
+  ASSERT_EQ('d', r._contents[4]);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, set) {
+  String s;
+  s.set("Doof");
+  ASSERT_EQ(4, s._length);
+  ASSERT_EQ('D', s._contents[0]);
+  ASSERT_EQ('o', s._contents[1]);
+  ASSERT_EQ('o', s._contents[2]);
+  ASSERT_EQ('f', s._contents[3]);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, count) {
+  String s;
+  s.set("Doof");
+  ASSERT_EQ(1, s.count('D'));
+  ASSERT_EQ(2, s.count('o'));
+  ASSERT_EQ(1, s.count('f'));
+  ASSERT_EQ(0, s.count('x'));
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, toFloat) {
+  String s;
+  s.set("");
+  ASSERT_FLOAT_EQ(0.0, s.toFloat());
+  s.set("1");
+  ASSERT_FLOAT_EQ(1.0, s.toFloat());
+  s.set("-1");
+  ASSERT_FLOAT_EQ(-1.0, s.toFloat());
+  s.set("42.21");
+  ASSERT_FLOAT_EQ(42.21, s.toFloat());
+  s.set("42.21\n");
+  ASSERT_FLOAT_EQ(42.21, s.toFloat());
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, split) {
+  String s;
+  String parts[4];
+  s.set("this;is;a;test");
+  s.split(';', 4, parts);
+  ASSERT_EQ('t', parts[0]._contents[0]);
+  ASSERT_EQ('h', parts[0]._contents[1]);
+  ASSERT_EQ('i', parts[0]._contents[2]);
+  ASSERT_EQ('s', parts[0]._contents[3]);
+  ASSERT_EQ('i', parts[1]._contents[0]);
+  ASSERT_EQ('s', parts[1]._contents[1]);
+  ASSERT_EQ('a', parts[2]._contents[0]);
+  ASSERT_EQ('t', parts[3]._contents[0]);
+  ASSERT_EQ('e', parts[3]._contents[1]);
+  ASSERT_EQ('s', parts[3]._contents[2]);
+  ASSERT_EQ('t', parts[3]._contents[3]);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, splitTooManyDelimiters) {
+  String s;
+  String parts[3];
+  s.set("this;is;a;test");
+  s.split(';', 3, parts);
+  ASSERT_EQ('t', parts[0]._contents[0]);
+  ASSERT_EQ('h', parts[0]._contents[1]);
+  ASSERT_EQ('i', parts[0]._contents[2]);
+  ASSERT_EQ('s', parts[0]._contents[3]);
+  ASSERT_EQ('i', parts[1]._contents[0]);
+  ASSERT_EQ('s', parts[1]._contents[1]);
+  ASSERT_EQ('a', parts[2]._contents[0]);
+  ASSERT_EQ(';', parts[2]._contents[1]);
+  ASSERT_EQ('t', parts[2]._contents[2]);
+  ASSERT_EQ('e', parts[2]._contents[3]);
+  ASSERT_EQ('s', parts[2]._contents[4]);
+  ASSERT_EQ('t', parts[2]._contents[5]);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, splitTooFewDelimiters) {
+  String s;
+  String parts[5];
+  s.set("this;is;a;test");
+  s.split(';', 5, parts);
+  ASSERT_EQ('t', parts[0]._contents[0]);
+  ASSERT_EQ('h', parts[0]._contents[1]);
+  ASSERT_EQ('i', parts[0]._contents[2]);
+  ASSERT_EQ('s', parts[0]._contents[3]);
+  ASSERT_EQ('i', parts[1]._contents[0]);
+  ASSERT_EQ('s', parts[1]._contents[1]);
+  ASSERT_EQ('a', parts[2]._contents[0]);
+  ASSERT_EQ('t', parts[3]._contents[0]);
+  ASSERT_EQ('e', parts[3]._contents[1]);
+  ASSERT_EQ('s', parts[3]._contents[2]);
+  ASSERT_EQ('t', parts[3]._contents[3]);
+  ASSERT_EQ(0, parts[4]._length);
+}
+
+// _____________________________________________________________________________
+TEST(StringTest, splitNoDelimiter) {
+  String s;
+  String parts[4];
+  s.set("this;is;a;test");
+  s.split('!', 4, parts);
+  ASSERT_EQ('t', parts[0]._contents[0]);
+  ASSERT_EQ('h', parts[0]._contents[1]);
+  ASSERT_EQ('i', parts[0]._contents[2]);
+  ASSERT_EQ('s', parts[0]._contents[3]);
+  ASSERT_EQ(';', parts[0]._contents[4]);
+  ASSERT_EQ('i', parts[0]._contents[5]);
+  ASSERT_EQ('s', parts[0]._contents[6]);
+  ASSERT_EQ(';', parts[0]._contents[7]);
+  ASSERT_EQ('a', parts[0]._contents[8]);
+  ASSERT_EQ(';', parts[0]._contents[9]);
+  ASSERT_EQ('t', parts[0]._contents[10]);
+  ASSERT_EQ('e', parts[0]._contents[11]);
+  ASSERT_EQ('s', parts[0]._contents[12]);
+  ASSERT_EQ('t', parts[0]._contents[13]);
+  ASSERT_EQ(0, parts[1]._length);
+  ASSERT_EQ(0, parts[2]._length);
+  ASSERT_EQ(0, parts[3]._length);
+}

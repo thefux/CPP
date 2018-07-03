@@ -1,0 +1,77 @@
+** English version below **
+
+==== [ Feedback ] ====
+
+== [ Aufgabe 1 ] ==
+
+Du benutzt die ersten n+1 Summanden anstelle der ersten n Summanden.
+[-0.5]
+
+== [ Aufgabe 2 ] ==
+
+Raffinierte Lösung mit EXPECT_NEAR :)
+
+== [ Aufgabe 3 ] ==
+
+Leider ist die Ausgabe Deines Programmes nicht gut verständlich.
+Besser wäre es mit einer Erklärung, was die Werte bedeuten.
+Zudem sollte die STL (iostream) nicht benutzt werden.
+[-3.0]
+
+== [ Aufgabe 4 ] ==
+
+Gut.
+
+Du hast insgesamt 16.5 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Es wäre super wenn Du mir in der nächsten erfahrungen.txt
+mitteilen könntest, auf welcher Sprache Du Dein Feedback
+gerne erhalten möchtest :)
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>
+
+
+
+
+==== [ Feedback ] ====
+
+== [ Task 1 ] ==
+
+You use the first n+1 terms instead of the first n.
+[-0.5]
+
+== [ Task 2 ] ==
+
+Sophisticated solution using EXPECT_NEAR :)
+
+== [ Task 3 ] ==
+
+The output isn't very understandable. Please explain the values in the output.
+Also, the STL (iostream) shouldn't be used on this sheet yet.
+[-3.0]
+
+== [ Task 4 ] ==
+
+Good.
+
+You reached 16.5 out of 20 points.
+
+-------------------------------------------
+
+It would be great if you could tell me in the next
+erfahrungen.txt whether you would like to receive
+your feedback in german or english :)
+
+-------------------------------------------
+
+If you have any questions regarding the feedback feel free
+to ask via e-mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

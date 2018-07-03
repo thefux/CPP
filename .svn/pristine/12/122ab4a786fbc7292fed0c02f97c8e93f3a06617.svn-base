@@ -1,0 +1,111 @@
+==== [ Feedback -- Übungsblatt 4 ] ====
+
+== [ Allgemein ] ==
+
+Dokumentation -- gut, Du könntest zudem noch Parameter und Rückgabewerte
+der Funktionen beschreiben
+
+Kommentare -- sehr ausführlich :)
+
+Codestyle -- alles in Ordnung
+
+Effizienz -- Du kopierst bei jedem Update das eine Feld ins andere, das ginge
+mit Zeigern effizienter.
+
+Tests -- sehr schöne Visualisierung in den Kommentaren, was genau für ein
+Zustand aufgesetzt wird. Allerdings sollte auch noch die processUserInput-
+Funktion getestet werden.
+[[-1]]
+
+Endprodukt -- lässt sich gut spielen
+
+Sonstiges -- N/A
+
+== [ Aufgabe 1 ] ==
+
+Deklaration und Initialisierung der Feldzeiger -- MAX_GRID_SIZE sollte eine
+'const int' sein, kein Makro (#define)
+
+Eigentlich sollte auch die Signatur der Feldzeiger
+bool (*actual)[MAX_GRID_SIZE][MAX_GRID_SIZE] = &actualState;
+sein, was allerdings im Maschinencode auf dasselbe hinausläuft, weswegen das
+hier in Ordnung ist.
+
+Sonstige Initialisierung -- die Felder sollten per = {0} in der Deklaration
+genullt werden. So funktioniert es zwar auch, aber ist deutlich komplexer zu
+lesen.
+
+== [ Aufgabe 2 ] ==
+
+Malen des aktuellen Zustandsfeldes auf den Bildschirm -- die Verwendung von <=
+in den Zeilen 48,49 sorgt dafür dass auch hinter dem Feld gelesen wird, was
+undefiniertes Verhalten ist
+[[-1]]
+
+Weiterhin wäre ein refresh() nach allen Zellen ausreichend.
+
+Anzeigen der Iteration -- N/A
+[[-1]]
+
+== [ Aufgabe 3 ] ==
+
+Berechnung der Anzahl aliveNeighbors -- eine Überprüfung der Feldgrenzen würde
+hier ermöglichen in updateState() alle Zellen zu aktualisieren (auch x,y=0 etc.)
+
+Sonstige Updates -- in Ordnung
+
+== [ Aufgabe 4 ] ==
+
+Umsetzung Mausklicks -- gut
+
+Umsetzung Space/'s' -- alles gut
+
+Umsetzung Escape -- super
+
+== [ Aufgabe 5 ] ==
+
+(das wird zu A5 gerechnet) es war auf dem Blatt explizit gefordert den Tausch
+zwischen 'actual' und 'previous' mit Zeigern durchzuführen, ohne den Inhalt zu
+kopieren.
+[[-1]]
+
+== [ Aufgabe 6 ] ==
+
+Header korrekt bestimmt -- ja
+
+Objektdateien korrekt bestimmt -- bestimmt, jedoch nicht verwendet
+[[-1]] ** Nachtrag: Kein Abzug **
+
+Binaries korrekt bestimmt -- ja
+
+Restliche Funktionalität -- im .o-Ziel sollte statt $^ nur $< verwendet werden.
+Die Libraries könnten in einer Variable ausgelagert werden.
+
+== [ Erfahrungen ] ==
+
+Leider wurden keine erfahrungen.txt abgegeben.
+
+-------------------------------------------
+
+Nicht-Programmierteil: 5/5
+Funktionalität: 12/15 * 60% = 8P
+Tests: 2/3
+Doku: 3/3
+Du hast insgesamt 18 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Für Details zur korrekten Lösung sollte im Laufe des Tages die
+Musterlösung unter
+
+https://daphne.informatik.uni-freiburg.de/ss2018/ProgrammierenCplusplus/svn/loesungen/blatt-04/
+
+online gehen. Falls Du Fragen zur Musterlösung hast, melde Dich im Forum oder
+per E-Mail.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

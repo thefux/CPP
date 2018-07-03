@@ -1,0 +1,97 @@
+
+/* check neighbors [[*/
+    // if (previousState[x - 4][y- 2]) {
+    //     mvprintw(4, 0, "neighbors1: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(4, 0, "neighbors1: %d", 0);
+    // }
+    // if (previousState[x][y - 2]) {
+    //     mvprintw(5, 0, "neighbors2: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(5, 0, "neighbors2: %d", 0);
+    // }
+    // if (previousState[x + 4][y - 2]) {
+    //     mvprintw(6, 0, "neighbors3: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(6, 0, "neighbors3: %d", 0);
+    // }
+    // if (previousState[x - 4][y]) {
+    //     mvprintw(7, 0, "neighbors4: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(7, 0, "neighbors4: %d", 0);
+    // }
+    // if (previousState[x + 4][y]) {
+    //     mvprintw(8, 0, "neighbors5: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(8, 0, "neighbors5: %d", 0);
+    // }
+    // if (previousState[x - 4][y + 2]) {
+    //     mvprintw(9, 0, "neighbors6: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(9, 0, "neighbors6: %d", 0);
+    // }
+    // if (previousState[x][y + 2]) {
+    //     mvprintw(10, 0, "neighbors7: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(10, 0, "neighbors7: %d", 0);
+    // }
+    // if (previousState[x + 4][y + 2]) {
+    //     mvprintw(11, 0, "neighbors8: %d", 1);
+    //     neighbors1 += 1;
+    // } else {
+    //     mvprintw(11, 0, "neighbors8: %d", 0);
+    // }
+
+/*]]*/
+
+/* check squared shape [[*/
+    /* update the state of the grid */
+    // for (int i = 4; i <= MAX_GRID_SIZE - 4; i += 4) {
+    //     for (int j = 2; j <= MAX_GRID_SIZE - 2; j += 2) {
+    //         bool check = actualState[i][j];
+    //         if (check) {
+    //             if (aliveNeighbors(i, j) < 2) {
+    //                 updateCell(i, j);
+    //             }
+    //             // else if (aliveNeighbors(i, j) > 3) {
+    //             //     updateCell(i, j);
+    //             // } else {
+    //             //     if (aliveNeighbors(i, j) == 2 || aliveNeighbors(i, j) == 3) {
+    //             //         previous[i][j] = true;
+    //             //     }
+    //             // } 
+    //         } else {
+    //             if (aliveNeighbors(i, j) == 3) {
+    //                 updateCell(i, j);
+    //             }
+    //         }
+    //     }
+    // }
+/*]]*/
+
+update squared shape [[
+    // int X = floor(x / 4);
+    // int Y = floor(y / 4);
+    // for (int i = X * 4; i < X * 4 +  4; ++i) {
+    //     for (int j = Y * 2; j < Y * 2 + 2; ++j) {
+    //         previous[i][j] = !previous[i][j];
+    //     }
+    // }]]
+
+/* actual the state of the cell [[*/
+// __________________________________________________________
+void updateCell(int x, int y) {
+    for (int i = x ; i < x + 4; ++i) {
+        for (int j = y; j < y + 2; ++j) {
+            previous[i][j] = !previous[i][j];
+        }
+    }
+}
+/*]]*/

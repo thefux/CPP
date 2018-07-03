@@ -1,0 +1,76 @@
+==== [ Feedback -- Übungsblatt 5 ] ====
+
+Sorry, dass die Korrektur etwas länger gedauert hat.
+
+== [ Allgemein ] ==
+
+Dokumentation -- ok, dokumentiere bitte auch Rückgabewerte und Parameter.
+[[-Karma]]
+
+Kommentare -- gut
+
+Codestyle -- ok
+
+Effizienz -- der alte Zustand wird noch immer in den neuen Zustand kopiert.
+
+Tests -- gut
+
+Endprodukt -- gut :)
+
+== [ Aufgabe 1 & Aufgabe 2 ] ==
+
+initialize() -- ok
+
+showState() -- ok
+
+aliveNeighbors(), updateState() -- leider wird der alte Zustand in den neuen
+Zustand kopiert anstatt einen Tausch der Felder (über Pointer) vorzunehmen.
+[[-1]]
+
+processUserInput() -- ok
+
+play() -- ok
+
+Konstruktor -- ok
+
+Destruktor -- ok
+
+Membervariablen -- ok
+
+Methoden die von außen nicht benötigt werden sollten private deklariert werden.
+
+== [ Aufgabe 3 ] ==
+
+Schön :)
+
+== [ Aufgabe 4 ] ==
+
+Kompaktheit -- gut
+
+== [ Erfahrungen ] ==
+
+Leider wurden keine erfahrungen.txt abgegeben.
+
+-------------------------------------------
+
+Funktionalität: 19/20 * 60% = 12
+Tests: 4/4
+Doku: 4/4
+Du hast insgesamt 20 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Für Details zur korrekten Lösung sollte im Laufe des Tages die
+Musterlösung unter
+
+https://daphne.informatik.uni-freiburg.de/ss2018/ProgrammierenCplusplus/svn/loesungen/blatt-05/
+
+online gehen. Falls Du Fragen zur Musterlösung hast, melde Dich im Forum oder
+per E-Mail.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

@@ -1,0 +1,6 @@
+Die Aufgaben waren so detailliert, dass man schnell verwirrt wird :)
+
+Also so dass mein Program eine Taste erkennen kann muss ich länger auf der 
+Taste drücke ( ist das wegen getch()? ).. 
+
+War im Vergleich zu den anderen Übungsblätter deutlich schwerer..

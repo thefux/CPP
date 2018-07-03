@@ -1,0 +1,13 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#include "MarketSimulator.h"
+
+int main(int argc, char** argv) {
+    MarketSimulator mark;
+    mark.parseCommandLineArguments(argc, argv);
+    mark.processFile();
+    return 0;
+}

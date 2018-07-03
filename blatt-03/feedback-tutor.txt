@@ -1,0 +1,73 @@
+==== [ Feedback ] ====
+
+== [ Allgemein ] ==
+
+Ich bitte Dich, die WINDOWs von ncurses nicht zu verwenden solange sie in der
+Vorlesung nicht explizit behandelt / benutzt werden. Die scheinen bei mir nicht
+wirklich gut zu funktionieren und resultieren in Flackern / Compilerproblemen.
+
+Nenne die Dateien bitte so wie auf dem Übungsblatt gefordert.
+[[-Karma]]
+
+Bitte halte dich genauer an die Aufgabe. Zufall war nicht gefordert und casts
+sollte man eigentlich noch nicht verwenden. Dafür kann und wird es in Zukunft
+Punktabzug geben.
+[[-Karma!!!]]
+
+== [ Aufgabe 1 ] ==
+
+Deine drawBall-Methode produziert Flackern. Zudem erschließen sich mir die
+magischen Konstanten nicht wirklich. Dokumentiere solche Konstanten bitte in
+Zukunft.
+[[-Karma]]
+
+== [ Aufgabe 2 ] ==
+
+Du testest ob die Rückgabe (der Wert der Variablen 'speedy') dem Wert der
+Variablen 'speedy' entspricht. Das verfehlt aber den Sinn und Zweck von Tests,
+da diese Bedingung immer erfüllt ist.
+[[-1]]
+
+Geschwindigkeitsabnahme bei Kollision funktioniert nicht korrekt.
+[[-1]]
+
+Beschleunigung wurde nicht umgesetzt.
+[[-1]]
+
+Ansatz ist jedoch erkennbar :)
+[[+1]]
+
+== [ Aufgabe 3 ] ==
+
+Das Problem mit dem 1 Sekunde lang drücken scheint das doppelte getch() zu
+sein. Ohne das klappt es.
+[[-1]]
+*+NACHTRAG: Abzug aufgehoben, Funktioniert prinzipiell**
+
+Die Logik fürs Bewegen sollte sauber von der Main-Methode getrennt sein.
+[[-1]]
+
+== [ Aufgabe 4 ] ==
+
+'compile' sollte nicht von der Testbinary abhängen.
+
+.o-Dateien sollten von allen Headern die sie benötigen abhängen. Im Zweifelsfall
+sollte man hierfür alle nehmen ($(HEADERS))
+[[-1]]
+
+Du hast insgesamt 13 von 20 Punkten erreicht.
+**NACHTRAG: Stand 2018-05-24: Mit allen Nachträgen wurden 14/20P erreicht**
+
+-------------------------------------------
+
+Binaries haben im SVN nichts zu suchen.
+[[-2]]
+
+Bitte nicht über den Text in doppelten [] wundern, dazu kommt später eine Mail.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

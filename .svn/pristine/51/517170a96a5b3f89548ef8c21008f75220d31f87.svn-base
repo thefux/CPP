@@ -1,0 +1,58 @@
+==== [ Feedback -- Übungsblatt 6 ] ====
+
+== [ Allgemein ] ==
+
+Dokumentation
+ -> Rückgabewerte -- bitte dokumentiere die Rückgabewerte!
+ -> Parameter -- bitte dokumentiere die Parameter!
+ -> Sonstige Effekte -- in Ordnung
+[[-2]]
+
+Kommentare -- ok
+
+Codestyle -- in Ordnung
+
+Effizienz -- ok
+
+== [ Aufgabe 1 ] ==
+
+count() -- ok
+
+toFloat() -- ok
+
+split() -- ok
+
+Die Methoden könnten const sein
+[[-1]]
+
+== [ Aufgabe 2 ] ==
+
+Tests laufen -- ja
+
+== [ Aufgabe 3 ] ==
+
+Tests laufen -- ja
+
+== [ Aufgabe 4 ] ==
+
+Tests laufen -- teilweise
+[[-5]]
+
+valgrind -- Unzulässiger Zugriff
+In Zeile 82 wird auf den zu kurzen Speicher des Teilstrings geschrieben.
+Dies löst den unzulässigen Zugriffsfehler aus.
+[[-3]]
+
+-------------------------------------------
+
+Funktionalität: 11/20 * 80% = 9
+Tests waren dieses Mal bereitgestellt.
+Doku: 2/4
+Du hast insgesamt 11 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

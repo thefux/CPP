@@ -1,0 +1,51 @@
+==== [ Feedback ] ====
+
+== [ Allgemein ] ==
+
+Zu Deinen Fragen zum Feedback:
+
+iostream -- Dies war implizit über Gebot 1 der Zehn Gebote auf Ü1 gefordert
+"Sie dürfen grundsätzlich alles benutzen, was bereits dran war [...]".
+Die STL selbst ist jedoch erst Gegenstand einer späteren Vorlesung (sobald
+Templates behandelt wurden)
+
+Bitte keine Binaries ins SVN hochladen!
+[-Karma!!!]
+
+== [ Aufgabe 1 ] ==
+
+Es sollten noch keine Klassen benutzt werden. Bitte verwende in Zukunft nur
+Konzepte die in der Vorlesung bereits behandelt wurden.
+[-Karma]
+
+== [ Aufgabe 2 ] ==
+
+'test' sollte als Abhängigkeit 'approximationEulerNumberTest' aufführen, damit
+es im Zweifelsfall kompiliert wird.
+[-1]
+
+Die .o-Dateien sollten in ihren Abhängigkeiten die .h-Dateien haben die sie
+einbinden.
+[-1]
+
+Das Angeben der Bibliotheken in Zeile 17 ist nicht notwendig, dies wird erst
+beim Linken des Programms benötigt.
+
+== [ Aufgabe 3 ] ==
+
+Es werden weiterhin die ersten n+1 Summanden berechnet.
+[-2]
+
+Du hast insgesamt 16 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Karmapunkte dienen als Hinweis auf Dinge die in Zukunft Punktabzug geben können.
+Karmaabzug selbst hat jedoch keine Auswirkung auf die Punkte.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

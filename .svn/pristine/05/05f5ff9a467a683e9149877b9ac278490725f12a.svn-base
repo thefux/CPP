@@ -1,0 +1,15 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#include <stdio.h>
+#include "Trader.h"
+
+int main(void) {
+    Trader trader;
+    trader.trade(3);
+    trader.trade(4);
+    trader.trade(1);
+    return 0;
+}

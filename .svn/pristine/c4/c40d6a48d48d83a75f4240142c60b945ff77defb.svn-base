@@ -1,0 +1,45 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
+#include "./MarketSimulator.h"
+#include "./Trader.h"
+
+// __________________________________________________________________________
+void MarketSimulator::parseCommandLineArguments(int argc, char** argv) {
+//     struct option options[] = {
+//         {"head", 1, NULL, 'h'},
+//         {"numbers", 0, NULL, 'n'},
+//         {NULL, 0, NULL, 0}
+//     };
+//     optind = 1;
+}
+
+// __________________________________________________________________________
+void MarketSimulator::processFile() {
+//     FILE* file = fopen(_inputFileName, "r");
+//     if (file == NULL) {
+//         perror("error opening file");
+//         exit(1);
+//     }
+//     while (true) {
+//         const int kMaxLineLength = 1000;
+//         char line[kMaxLineLength + 1];
+//         fgets(line, kMaxLineLength, file);
+//         if (feof(file)) { break;}
+//         printf("%s", line);
+//     }
+//     fclose(file);
+}
+
+// __________________________________________________________________________
+void MarketSimulator::printUsageAndExit(void) {
+}
+
+// __________________________________________________________________________
+void MarketSimulator::simulate(Trader *trader) {
+}

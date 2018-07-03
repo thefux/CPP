@@ -1,0 +1,75 @@
+/*
+ * copyright Abderrahmen Rakez
+ *
+ * */
+
+#ifndef SET_H_
+#define SET_H_
+
+#include <gtest/gtest.h>
+
+template <class T>
+class Set {
+ private:
+     // array of type T
+     T *_elements;
+
+     // size of array
+     int _size;
+
+     // number of occupied positions
+     int _numberOfElements;
+
+ public:
+     // constructor
+     Set();
+
+     // destructor
+     ~Set();
+
+     // insert element
+     void insert(T c);
+
+     // erase element
+     void erase(T c);
+
+     // check if exist
+     bool lookup(T a) const;
+
+     FRIEND_TEST(SetTest, blackbox);
+};
+
+template <>
+class Set<char> {
+ private:
+     // array of type T
+     char *_elements;
+
+     // size of array
+     int _size;
+
+     // number of occupied positions
+     int _numberOfElements;
+
+     // counter
+     int _counter;
+
+ public:
+     // constructor
+     Set();
+
+     // destructor
+     ~Set();
+
+     // insert element
+     void insert(char c);
+
+     // erase element
+     void erase(char c);
+
+     // check if exist
+     bool lookup(char a);
+
+     FRIEND_TEST(SetCharTest, blackbox);
+};
+#endif  // SET_H_

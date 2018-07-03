@@ -1,0 +1,88 @@
+==== [ Feedback -- Übungsblatt 8 ] ====
+
+== [ Allgemein ] ==
+
+Dokumentation & Style
+ -> Rückgabewerte -- etwas wenig...
+ -> Parameter -- etwas wenig...
+ -> Sonstige Effekte -- etwas wenig...
+ -> Kommentare -- ok
+ -> Codestyle -- ok
+
+Fehlerfreiheit
+ -> Valgrind -- Zugriffsfehler
+ -> Tests -- teilweise (Original-Tests verwendet)
+
+Konventionen
+ -> 'const'-correctness
+   -> Parameterübergabe -- ok
+   -> Methoden -- ok
+ -> Sichtbarkeit (public/private) -- ok
+
+Effizienz -- Achtung, T kann potentiell sehr groß sein. Übergebe es also als
+  const-reference!
+[[-1]]
+
+== [ Aufgabe 1 ] ==
+
+Du musst den Speicher gar nicht initialisieren, einfach annehmen, dass Speicher
+hinter _size-1 nicht existiert :)
+
+Wegen der Initialisierung startet die Menge mit einem Element '|'
+(bzw. uninitialisiert wenn T != int)
+(Hast du in lookup evtl. _numberOfElements und _size verwechselt?)
+[[-1]]
+
+lookup
+ -> O(n) -- ja
+ -> korrekt -- ja
+
+insert
+ -> O(n) -- ja
+ -> Speicherfehler -- nein
+ -> Duplikate -- nein
+
+erase
+ -> O(n) -- ja
+ -> Speicherfehler -- nein
+
+== [ Aufgabe 2 ] ==
+
+Speicherverwaltung
+ -> Effizienter als generische Version -- ja
+ -> Speicherfehler -- ja: Sehr wahrscheinlich wegen dem Vorzeichen. Schau Dir am
+      besten die Musterlösung an, da ist es kurz und elegant gelöst :)
+
+lookup
+ -> Indexfehler -- ja: Achtung, static_cast<int> macht negative chars nicht
+      positiv!
+[[-1]]
+
+insert
+ -> Indexfehler -- s.o.
+[[-1]]
+
+erase
+ -> Indexfehler -- s.o.
+[[-1]]
+
+(Dreimal abgezogen: Es ist zwar immer 'derselbe' Fehler, allerdings an drei
+  verschiedenen Orten.)
+
+== [ Erfahrungen ] ==
+
+Leider wurden keine erfahrungen.txt abgegeben.
+
+-------------------------------------------
+
+Funktionalität: 15/20 * 80% = 12
+Tests waren dieses Mal wieder bereitgestellt.
+Doku: 4/4
+Du hast insgesamt 16 von 20 Punkten erreicht.
+
+-------------------------------------------
+
+Falls es noch Fragen zur Korrektur gibt, melde Dich einfach
+bei mir per Mail :)
+
+Yannick <buehlery@tf.uni-freiburg.de>

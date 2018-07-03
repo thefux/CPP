@@ -1,0 +1,50 @@
+/*
+ * copyright Abderrahmen Rakez 
+ * 
+ * */
+
+#ifndef MARKETSIMULATION_H_
+#define MARKETSIMULATION_H_
+
+#include <gtest/gtest.h>
+#include "./Trader.h"
+
+class Trader;
+class MarketSimulator {
+ private:
+     // file name
+     const char* _inputFileName;
+
+     bool _verbose;
+
+     float _money;
+
+     float _seedMoney;
+
+     int _assets;
+
+     int *_lastPrices;
+
+     FRIEND_TEST(MarketSimulatorTest, constructor);
+     FRIEND_TEST(MarketSimulatorTest, parseCommandLineArgumentsNoArguments);
+     FRIEND_TEST(MarketSimulatorTest, parseCommandLineArguments);
+     FRIEND_TEST(MarketSimulatorTest, parseCommandLineArgumentsSetFunds);
+     FRIEND_TEST(MarketSimulatorTest, printUsageAndExit);
+     FRIEND_TEST(MarketSimulatorTest, simulateCantOpenInputFile);
+     FRIEND_TEST(MarketSimulatorTest, simulateSimpleTraderInteraction);
+
+ public:
+     // read file content
+     void processFile();
+
+     // print usage if the wrong arguments are used
+     void printUsageAndExit(void);
+
+     // parse user argument
+     void parseCommandLineArguments(int argc, char** argv);
+
+     // simulate from Trader class
+     void simulate(Trader *trader);
+};
+
+#endif  // MARKETSIMULATION_H_

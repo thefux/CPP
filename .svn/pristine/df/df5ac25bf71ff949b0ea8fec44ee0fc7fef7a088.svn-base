@@ -1,0 +1,15 @@
+/*
+ * copyright Abderrahmen Rakez
+ *
+ * */
+
+#include <iostream>
+#include "Set.h"
+
+
+int main(void) {
+    Set<int> s;
+    s.insert(10);
+    std::cout << "found \n" << s.lookup(11) << std::endl;
+    return 0;
+}

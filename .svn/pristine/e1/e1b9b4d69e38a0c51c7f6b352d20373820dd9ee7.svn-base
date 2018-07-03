@@ -1,0 +1,5 @@
+bei der Split Funktion treten SpeicherFehler, und dies ab dem While, hat lieder nicht 
+genug Zeit um es zu debuggen,
+
+ich habe extra die splitTooFewDelimiters auskommentiert, bei mir laufen 
+alle tests durch, aber jenkins mekert !

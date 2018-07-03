@@ -1,0 +1,6 @@
+Die Aufgabe war schnell gemacht (ohne Probleme)
+
+* zu feedback blatt-01: ich sah nicht wo es verboten ist, die "iostream"-Library zu benutzen ..
+(so ner große Unterschied macht es auch nicht) ...
+
+English oder Deutsch ist egal (such dir was aus ;) )....
