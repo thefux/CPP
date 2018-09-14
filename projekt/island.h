@@ -5,6 +5,7 @@
 
 #ifndef ISLAND_H_
 #define ISLAND_H_
+#include <vector>
 #include "./hashi.h"
 
 class island {
@@ -17,5 +18,6 @@ class island {
   std::size_t _numBridge;
   std::size_t _curBridges;
   bool _clicked;
+  std::vector<island> islandConnection;
 };
 #endif  // ISLAND_H_

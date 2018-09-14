@@ -43,6 +43,9 @@ class Hashi {
   // runs the game.
   void play();
 
+  // gets the game started.
+  // void getStarted();
+
   // processes the input of the user, such as mouse click
   int processUserInput(int key);
 
@@ -56,6 +59,13 @@ class Hashi {
   // or if another island is in between those two.
   bool checkIslandCollision(size_t coor, size_t min, size_t max, bool decision);
 
+  // checks if there is a collision with an already existing bridge.
+  bool checkBridgeCollision(size_t minX, size_t maxX,  size_t minY,
+                            size_t maxY, bool decision);
+
+  // executes the undo steps
+  void undo();
+
  private:
   // Bounding box of displayed region.
   // int _drawMinX;
@@ -64,6 +74,7 @@ class Hashi {
   // int _drawMaxY;
   std::vector<class  island> isl;
   int _numBridges;
+  // int _cnt;
 
   // Commandline arguments.
   int _undoOp;

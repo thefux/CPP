@@ -228,7 +228,7 @@ bool Hashi::checkBridgeCollision(size_t minX, size_t maxX,  size_t minY,
         //  right.push_back(&a);
         // }
       }
-    }
+    } 
     mvprintw(0, 0, "size r: %d", right.size());
     mvprintw(1, 0, "size l: %d", left.size());
     for (unsigned int i = 0; i < left.size(); i++) {

@@ -10,16 +10,13 @@
 #include "./hashi.h"
 
 int main(int argc, char** argv) {
-  // bool _plain;
-  // bool _xy;
   Hashi field;
+  // field.getStarted();
   field.parseCommandLineArguments(argc, argv);
   field.getLevel();
   field.initilizeGame();
   field.drawLevel();
   while (true) {
-    int key = getch();
-    field.processUserInput(key);
-    field.buildBridge();
+    field.play();
   }
 }
